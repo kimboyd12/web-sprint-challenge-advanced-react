@@ -17,6 +17,7 @@ const initialValue = {
 const CheckoutForm = (props) => {
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   
+  // changed useState to useForm(custom hook) - handlechanges in hook
   const [values, handleChanges] = useForm(initialValue);
 
   const handleSubmit = (e) => {
@@ -64,7 +65,7 @@ const CheckoutForm = (props) => {
           Zip:
           <input name="zip" value={values.zip} onChange={handleChanges} />
         </label>
-        <button>Checkout</button>
+        <button data-testid="button">Checkout</button>
       </form>
 
       {showSuccessMessage && (
